@@ -1,0 +1,277 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const checks = ["Bank-grade underwriting", "Every term disclosed", "Complete discretion"];
+
+const proof = [
+  {
+    title: "8+ years in banking",
+    text: "Our founder's credit experience shapes every decision.",
+    icon: "M3 21h18M5 21V10l7-5 7 5v11M9 21v-6h6v6",
+  },
+  {
+    title: "Every term disclosed",
+    text: "The full cost and terms are explained before you sign.",
+    icon: "M7 3h7l5 5v13H7zM14 3v5h5M10 13h6M10 17h6",
+  },
+  {
+    title: "Part of PiKiNiC",
+    text: "The financial backbone of a travel and study-abroad ecosystem.",
+    icon: "M3 12h18M12 3c2.5 3 2.5 15 0 18M12 3c-2.5 3-2.5 15 0 18M21 12a9 9 0 1 1-18 0a9 9 0 0 1 18 0",
+  },
+];
+
+const services = [
+  {
+    num: "01 · OUR CORE",
+    title: "Business Lending",
+    text: "Working capital for viable micro and small businesses that traditional lenders overlook. We start with your cash flow, not your sector.",
+    points: [
+      "Service, creative and newer businesses",
+      "No land title or audited accounts needed",
+      "Clear terms, clearly explained",
+    ],
+    href: "/lending",
+    cta: "Explore business lending →",
+    featured: true,
+  },
+  {
+    num: "02",
+    title: "Deal Aggregation",
+    text: "We connect businesses that need capital with the banks, asset managers and investors that provide it, and match each deal to the right institution.",
+    points: ["Screened like a credit memo", "Matched to institutions it fits", "NDA before any detail"],
+    href: "/aggregation",
+    cta: "Explore deal aggregation →",
+  },
+  {
+    num: "03",
+    title: "Mobility Finance",
+    text: "Genuine, verifiable financial readiness for students, families and travellers, delivered on your timeline.",
+    points: ["Proof of funds and visa documentation", "Study loans and tuition payment", "Travel finance"],
+    href: "/mobility",
+    cta: "Explore mobility finance →",
+  },
+];
+
+const steps = [
+  {
+    title: "Cash-flow check",
+    text: "We assess revenue, cash-flow patterns and repayment capacity, the way a bank credit officer would.",
+  },
+  {
+    title: "Integrity reference",
+    text: "A respected person who knows you vouches for your character. They are never liable for your loan.",
+  },
+  {
+    title: "Household-asset pledge",
+    text: "Together we value and list selected household items under a clear written agreement.",
+  },
+  {
+    title: "Decision",
+    text: "Clear terms, every cost disclosed before you sign, with a defined grace and renegotiation process.",
+  },
+];
+
+const routes = [
+  {
+    title: "I run a business",
+    text: "Working capital for growth, restocking or a big order.",
+    cta: "Business lending →",
+    href: "/lending",
+    icon: "M3 9l1.5-5h15L21 9M3 9h18v11H3zM3 9c0 1.7 1.3 3 3 3s3-1.3 3-3c0 1.7 1.3 3 3 3s3-1.3 3-3c0 1.7 1.3 3 3 3s3-1.3 3-3",
+  },
+  {
+    title: "I need capital for a deal, or I provide it",
+    text: "Businesses, advisors, banks and investors.",
+    cta: "Deal aggregation →",
+    href: "/aggregation",
+    icon: "M3 12a3 3 0 1 0 6 0a3 3 0 1 0-6 0M15 12a3 3 0 1 0 6 0a3 3 0 1 0-6 0M9 12h6",
+  },
+  {
+    title: "I'm studying or travelling abroad",
+    text: "Proof of funds, visa documents, study loans and tuition.",
+    cta: "Mobility finance →",
+    href: "/mobility",
+    icon: "M7 3h10a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zM9 10a3 3 0 1 0 6 0a3 3 0 1 0-6 0M9 17h6",
+  },
+];
+---
+
+<Layout
+  title="First Mushroom: Where every need finds its match"
+  description="First Mushroom lends to viable businesses the banks overlook, connects deals to the right capital, and powers study and travel finance for the PiKiNiC ecosystem."
+>
+  <!-- Hero -->
+  <section class="hero">
+    <img class="hero__mark" src="/images/mushroom-mark.png" alt="" width="291" height="313" />
+    <div class="wrap hero__inner">
+      <div class="hero__copy">
+        <h1>Where every need finds its match.</h1>
+        <p class="hero__lead">
+          We lend to viable businesses the banks overlook, connect deals to the right capital, and
+          power study and travel finance for the PiKiNiC ecosystem.
+        </p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="/lending">Check if your business qualifies</a>
+          <a class="btn btn--ghost-light" href="#services">Explore our services</a>
+        </div>
+        <ul class="hero__checks">
+          {
+            checks.map((c) => (
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#43C074" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M5 12l5 5 9-10" />
+                </svg>
+                {c}
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <div class="hero__figure">
+        <img src="/images/hero-client.png" alt="A First Mushroom client" width="393" height="745" />
+        <div class="hero__card">
+          <div class="hero__card-label">INTEGRITY COLLATERAL</div>
+          <div class="hero__card-text">Cash flow and character, not land titles.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Proof strip -->
+  <section class="bg-surface">
+    <div class="wrap proof">
+      {
+        proof.map((p) => (
+          <div class="proof__item">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1280F9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d={p.icon} />
+            </svg>
+            <div>
+              <div class="proof__title">{p.title}</div>
+              <div class="proof__text">{p.text}</div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services">
+    <div class="wrap section stack-48">
+      <div class="heading-block">
+        <div class="eyebrow">What we do</div>
+        <h2 class="h2">Three ways we connect capital to opportunity.</h2>
+      </div>
+      <div class="cards">
+        {
+          services.map((s) => (
+            <div class:list={["card", { "card--featured": s.featured }]}>
+              <div class="card__num">{s.num}</div>
+              <h3>{s.title}</h3>
+              <p class="card__text">{s.text}</p>
+              <ul class="card__list">
+                {s.points.map((p) => <li>{p}</li>)}
+              </ul>
+              <a class="link-arrow" href={s.href}>{s.cta}</a>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Why we exist -->
+  <section class="bg-surface">
+    <div class="wrap section story">
+      <img
+        class="story__photo"
+        src="/images/founder.jpg"
+        alt="Adeniyi Akitoye, Founder and CEO of First Mushroom"
+        width="960"
+        height="1200"
+        loading="lazy"
+      />
+      <div class="story__copy">
+        <div class="eyebrow">Why we exist</div>
+        <h2>Viable, not visible.</h2>
+        <p>
+          Many good Nigerian businesses are turned away by banks. Not because they are failing, but
+          because their sector, age or paperwork does not fit the bank's box.
+        </p>
+        <p>
+          Our founder saw this from both sides: more than eight years inside Nigerian banking, then
+          declined credit for his own profitable business. First Mushroom exists to close that gap.
+        </p>
+        <div class="quote">
+          <p class="quote__text">“The problem was never my numbers. It was my sector.”</p>
+          <div class="quote__by">Adeniyi Akitoye, Founder &amp; CEO</div>
+        </div>
+        <a class="link-arrow" href="/about">Read our story →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- How we lend -->
+  <section>
+    <div class="wrap section stack-48">
+      <div class="heading-block heading-block--wide">
+        <div class="eyebrow">How we lend</div>
+        <h2 class="h2">Integrity Collateral, in four steps.</h2>
+        <p>
+          Bank-grade analysis, with character and community standing in place of land titles and
+          audited accounts.
+        </p>
+      </div>
+      <div class="steps">
+        {
+          steps.map((s, i) => (
+            <div class="step">
+              <div class="step__num">{String(i + 1).padStart(2, "0")}</div>
+              <div class="step__title">{s.title}</div>
+              <div class="step__text">{s.text}</div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Where do you fit -->
+  <section class="bg-surface">
+    <div class="wrap section stack-40">
+      <div class="heading-block heading-block--full">
+        <div class="eyebrow">Where do you fit?</div>
+        <h2 class="h2">Tell us who you are. We'll show you the way.</h2>
+      </div>
+      <div class="routes">
+        {
+          routes.map((r) => (
+            <a class="route" href={r.href}>
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1280F9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d={r.icon} />
+              </svg>
+              <span class="route__title">{r.title}</span>
+              <span class="route__text">{r.text}</span>
+              <span class="route__cta">{r.cta}</span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA band -->
+  <section class="cta-band">
+    <div class="wrap cta-band__inner">
+      <h2>Start with a conversation.</h2>
+      <p>Tell us what you need. We'll tell you honestly whether and how we can help.</p>
+      <div class="hero__actions">
+        <a class="btn btn--white" href="https://wa.me/2347076968494">WhatsApp us</a>
+        <a class="btn btn--ghost-white" href="tel:+2347076968494">Call 0707 696 8494</a>
+        <a class="btn btn--ghost-white" href="mailto:fmf@firstmushroomfinance.com">Email us</a>
+      </div>
+    </div>
+  </section>
+</Layout>

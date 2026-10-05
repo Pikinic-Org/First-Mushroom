@@ -1,0 +1,47 @@
+---
+const links = [
+  { href: "/about", label: "About" },
+  { href: "/lending", label: "Business Lending" },
+  { href: "/aggregation", label: "Deal Aggregation" },
+  { href: "/mobility", label: "Mobility Finance" },
+  { href: "/contact", label: "Contact" },
+];
+---
+
+<header class="site-header">
+  <div class="wrap site-header__bar">
+    <a class="site-header__logo" href="/" aria-label="First Mushroom home">
+      <img src="/images/logo-header.png" alt="First Mushroom" width="807" height="277" />
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      {links.map((l) => <a href={l.href}>{l.label}</a>)}
+    </nav>
+    <a class="btn btn--primary btn--top" href="/contact">Talk to us</a>
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="mobile-nav"
+    >
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#040E3F" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+        <path d="M4 7h16M4 12h16M4 17h16"></path>
+      </svg>
+    </button>
+  </div>
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile" hidden>
+    {links.map((l) => <a href={l.href}>{l.label}</a>)}
+    <a class="btn btn--primary" href="/contact">Talk to us</a>
+  </nav>
+</header>
+
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>(".menu-toggle");
+  const menu = document.getElementById("mobile-nav");
+  toggle?.addEventListener("click", () => {
+    const open = toggle.getAttribute("aria-expanded") === "true";
+    toggle.setAttribute("aria-expanded", String(!open));
+    toggle.setAttribute("aria-label", open ? "Open menu" : "Close menu");
+    if (menu) menu.hidden = open;
+  });
+</script>
