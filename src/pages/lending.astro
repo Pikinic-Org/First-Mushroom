@@ -1,0 +1,227 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const differences = [
+  "No land title or audited accounts needed",
+  "Your sector is not a reason to say no",
+  "Every cost disclosed before you sign",
+  "A grace and renegotiation process if things get hard",
+];
+
+const audience = [
+  {
+    title: "Service businesses",
+    text: "Steady turnover and real customers, but outside the sectors banks prefer to lend to.",
+  },
+  {
+    title: "Creative businesses",
+    text: "Fashion, events, media, beauty and design. We underwrite creative work like any other business.",
+  },
+  {
+    title: "Newer businesses",
+    text: "Real cash flow, but no multi-year record or formal paperwork yet.",
+  },
+];
+
+const steps = [
+  {
+    title: "Cash-flow check",
+    text: "We assess revenue, cash-flow patterns, existing obligations and repayment capacity, the way a bank credit officer would.",
+  },
+  {
+    title: "Integrity reference",
+    text: "A respected person who knows you, such as a trade association head, faith leader, employer or long-time customer, writes a letter of introduction.",
+  },
+  {
+    title: "Household-asset pledge",
+    text: "Together we value and list selected household items under a clear, signed agreement, as secondary security.",
+  },
+  {
+    title: "Decision",
+    text: "Clear terms with every cost disclosed before you sign, plus a defined grace and renegotiation process.",
+  },
+];
+
+const refereePoints = [
+  "You vouch for their character: that they are honest and keep their word.",
+  "You are not a guarantor. You will never be asked to repay their loan.",
+  "We contact you once to confirm your introduction.",
+  "If you are unsure about the person, it is fine to say no.",
+];
+
+const ready = [
+  "Evidence of your business's cash flow, such as bank or POS statements and sales records",
+  "A valid means of identification",
+  "Name and contact details of your referee",
+  "[Other requirements, to be confirmed by credit]",
+];
+
+const faqs = [
+  {
+    q: "Is my referee responsible for my loan?",
+    a: "No. Your referee vouches for your character only. They are not a guarantor and are never asked to repay your loan.",
+  },
+  {
+    q: "What is a household-asset pledge?",
+    a: "We value and list selected household items with you, under a signed agreement, as secondary security. The terms are explained in plain language before you sign, and there is a grace and renegotiation process before any pledge is enforced.",
+  },
+  {
+    q: "Do I need land title or audited accounts?",
+    a: "No. We look at your real cash flow, your character and a household-asset pledge instead.",
+  },
+  {
+    q: "How much can I borrow, and for how long?",
+    a: "[Loan range and tenor to be confirmed.] The amount depends on your cash flow and repayment capacity.",
+  },
+  {
+    q: "How quickly will I get a decision?",
+    a: "[Turnaround to be confirmed] from the day we receive your complete documents.",
+  },
+];
+---
+
+<Layout
+  title="Business Lending | First Mushroom"
+  description="Working capital for viable micro and small businesses that traditional lenders overlook. We start with your cash flow, not your sector."
+>
+  <!-- Hero -->
+  <section class="lend-hero">
+    <div class="wrap lend-hero__inner">
+      <div class="lend-hero__copy">
+        <div class="lend-hero__eyebrow">01 · BUSINESS LENDING</div>
+        <h1>Your business is viable. We make it visible.</h1>
+        <p>
+          Working capital for viable micro and small businesses that traditional lenders overlook.
+          We start with your cash flow, not your sector.
+        </p>
+        <div class="hero__actions">
+          <a class="btn btn--white" href="https://wa.me/2347076968494">Check if you qualify</a>
+          <a class="btn btn--ghost-white" href="#how">See how it works</a>
+        </div>
+      </div>
+      <div class="lend-hero__panel">
+        <div class="eyebrow">What's different</div>
+        {
+          differences.map((d) => (
+            <div class="check-row">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2E9E5E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12l5 5 9-10" />
+              </svg>
+              <div>{d}</div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Who it's for -->
+  <section>
+    <div class="wrap section stack-40">
+      <div class="heading-block">
+        <div class="eyebrow">Who it's for</div>
+        <h2 class="h2">Good businesses the banks don't see.</h2>
+      </div>
+      <div class="promises">
+        {
+          audience.map((a) => (
+            <div class="promise">
+              <div class="promise__title">{a.title}</div>
+              <div class="promise__text">{a.text}</div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section id="how" class="network">
+    <div class="wrap section stack-48">
+      <div class="heading-block heading-block--wide">
+        <div class="eyebrow eyebrow--gold">How it works</div>
+        <h2 class="h2 on-dark">Integrity Collateral, step by step.</h2>
+        <p class="on-dark-text">
+          Bank-grade analysis first. Then character and community standing take the place of land
+          titles and audited accounts.
+        </p>
+      </div>
+      <div class="dark-steps">
+        {
+          steps.map((s, i) => (
+            <div class="dark-step">
+              <div class="dark-step__num">{i + 1}</div>
+              <div class="dark-step__title">{s.title}</div>
+              <div class="dark-step__text">{s.text}</div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Referees and readiness -->
+  <section>
+    <div class="wrap section duo">
+      <div class="duo__box duo__box--filled">
+        <div class="eyebrow">For referees</div>
+        <h3>Asked to vouch for someone? Here's what it means.</h3>
+        <ul class="duo__list">
+          {
+            refereePoints.map((p) => (
+              <li class="check-row">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2E9E5E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M5 12l5 5 9-10" />
+                </svg>
+                <div>{p}</div>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <div class="duo__box duo__box--outlined">
+        <div class="eyebrow">What to have ready</div>
+        <h3>Before you apply</h3>
+        <ul class="duo__list duo__list--dots">
+          {ready.map((r) => <li>{r}</li>)}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-surface">
+    <div class="wrap section stack-32 faq">
+      <div class="heading-block">
+        <div class="eyebrow">Questions</div>
+        <h2 class="h2">Frequently asked</h2>
+      </div>
+      <div class="faq__list">
+        {
+          faqs.map((f) => (
+            <details class="faq__item">
+              <summary>{f.q}</summary>
+              <p>{f.a}</p>
+            </details>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA band -->
+  <section class="cta-band">
+    <div class="wrap cta-band__row">
+      <div class="cta-band__text">
+        <h2>Check if your business qualifies.</h2>
+        <div class="cta-band__note">
+          Loans are subject to assessment. All terms are explained in full before you sign.
+        </div>
+      </div>
+      <div class="hero__actions">
+        <a class="btn btn--white" href="https://wa.me/2347076968494">WhatsApp 0707 696 8494</a>
+        <a class="btn btn--ghost-white" href="/contact">Visit our Ikeja office</a>
+      </div>
+    </div>
+  </section>
+</Layout>

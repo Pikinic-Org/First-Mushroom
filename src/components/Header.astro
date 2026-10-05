@@ -6,6 +6,8 @@ const links = [
   { href: "/mobility", label: "Mobility Finance" },
   { href: "/contact", label: "Contact" },
 ];
+const path = Astro.url.pathname.replace(/\/$/, "");
+const current = (href: string) => (path === href ? "page" : undefined);
 ---
 
 <header class="site-header">
@@ -14,7 +16,7 @@ const links = [
       <img src="/images/logo-header.png" alt="First Mushroom" width="807" height="277" />
     </a>
     <nav class="site-nav" aria-label="Main">
-      {links.map((l) => <a href={l.href}>{l.label}</a>)}
+      {links.map((l) => <a href={l.href} aria-current={current(l.href)}>{l.label}</a>)}
     </nav>
     <a class="btn btn--primary btn--top" href="/contact">Talk to us</a>
     <button
@@ -30,7 +32,7 @@ const links = [
     </button>
   </div>
   <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile" hidden>
-    {links.map((l) => <a href={l.href}>{l.label}</a>)}
+    {links.map((l) => <a href={l.href} aria-current={current(l.href)}>{l.label}</a>)}
     <a class="btn btn--primary" href="/contact">Talk to us</a>
   </nav>
 </header>

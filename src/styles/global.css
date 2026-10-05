@@ -177,6 +177,10 @@ p {
 .site-nav a:hover {
   color: var(--blue-dark);
 }
+.site-nav a[aria-current="page"],
+.mobile-nav a[aria-current="page"] {
+  color: var(--blue-dark);
+}
 .btn--top {
   height: 46px;
   padding: 0 22px;
@@ -569,6 +573,313 @@ p {
   color: var(--blue-dark);
 }
 
+/* ---------- About page ---------- */
+.page-hero {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  max-width: 1000px;
+  padding-block: 104px;
+}
+.page-hero h1 {
+  font-size: clamp(44px, 5.4vw, 80px);
+  line-height: 1.02;
+}
+.page-hero p {
+  max-width: 760px;
+  font-size: 22px;
+  line-height: 1.5;
+  font-weight: 500;
+  text-wrap: pretty;
+}
+.story__by {
+  font-size: 16px;
+  font-weight: 700;
+}
+.eyebrow--gold {
+  color: #ea9e42;
+}
+.network {
+  position: relative;
+  overflow: hidden;
+  background: var(--navy);
+}
+.network__inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 64px;
+  align-items: center;
+}
+.network__mark {
+  flex: 0 1 320px;
+  display: flex;
+  justify-content: center;
+}
+.network__mark img {
+  width: 280px;
+  height: auto;
+}
+.network__copy {
+  flex: 1 1 520px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.network h2 {
+  font-size: clamp(30px, 3.2vw, 44px);
+  line-height: 1.15;
+  color: var(--white);
+  text-wrap: balance;
+}
+.network p {
+  font-size: 18px;
+  line-height: 1.65;
+  color: var(--on-navy);
+  text-wrap: pretty;
+}
+.promises {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+.promise {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 30px;
+  border-radius: 18px;
+  background: var(--surface);
+}
+.promise__title {
+  font-size: 22px;
+  font-weight: 700;
+}
+.promise__text {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ink-2);
+}
+.journey {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+.journey__item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 24px;
+  border-radius: 16px;
+  background: var(--white);
+}
+.journey__step {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--muted);
+}
+.journey__title {
+  font-size: 19px;
+  font-weight: 700;
+}
+.journey__text {
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--ink-2);
+}
+.journey__item--featured {
+  background: var(--blue);
+}
+.journey__item--featured .journey__step,
+.journey__item--featured .journey__title,
+.journey__item--featured .journey__text {
+  color: var(--white);
+}
+
+/* ---------- Business lending page ---------- */
+.stack-32 {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.lend-hero {
+  background: var(--blue);
+}
+.lend-hero__inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 48px;
+  align-items: center;
+  padding-block: 96px;
+}
+.lend-hero__copy {
+  flex: 1 1 560px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+.lend-hero__eyebrow {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--white);
+}
+.lend-hero h1 {
+  font-size: clamp(40px, 4.8vw, 68px);
+  line-height: 1.04;
+  color: var(--white);
+  text-wrap: balance;
+}
+.lend-hero__copy p {
+  max-width: 580px;
+  font-size: 20px;
+  line-height: 1.55;
+  color: var(--white);
+  text-wrap: pretty;
+}
+.lend-hero__panel {
+  flex: 1 1 360px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 30px;
+  border-radius: 20px;
+  background: var(--white);
+}
+.check-row {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  font-size: 16px;
+  line-height: 1.5;
+}
+.check-row svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.h2.on-dark {
+  color: var(--white);
+}
+.on-dark-text {
+  color: var(--on-navy);
+}
+.dark-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+.dark-step {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 28px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+.dark-step__num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--blue);
+  color: var(--white);
+  font-weight: 800;
+  font-size: 18px;
+}
+.dark-step__title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--white);
+}
+.dark-step__text {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--on-navy);
+}
+.duo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+}
+.duo__box {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 36px;
+  border-radius: 20px;
+}
+.duo__box--filled {
+  flex: 1 1 460px;
+  background: var(--surface);
+}
+.duo__box--outlined {
+  flex: 1 1 420px;
+  border: 1px solid var(--line);
+}
+.duo__box h3 {
+  font-size: 30px;
+  line-height: 1.15;
+}
+.duo__list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 4px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.duo__list--dots li {
+  display: flex;
+  gap: 12px;
+  font-size: 16px;
+  line-height: 1.55;
+}
+.duo__list--dots li::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  margin-top: 8px;
+  border-radius: 50%;
+  background: var(--blue);
+  flex-shrink: 0;
+}
+.faq {
+  max-width: 920px;
+}
+.faq__list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.faq__item {
+  padding: 20px 24px;
+  border-radius: 14px;
+  background: var(--white);
+}
+.faq__item summary {
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.faq__item p {
+  margin-top: 12px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ink-2);
+}
+.cta-band__text {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.cta-band__note {
+  font-size: 14px;
+  font-style: italic;
+  color: var(--white);
+}
+
 /* ---------- CTA band ---------- */
 .cta-band {
   background: var(--blue);
@@ -579,6 +890,14 @@ p {
   flex-direction: column;
   gap: 20px;
   align-items: flex-start;
+}
+.cta-band__row {
+  padding-block: 88px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  align-items: center;
+  justify-content: space-between;
 }
 .cta-band h2 {
   font-size: clamp(34px, 4vw, 56px);

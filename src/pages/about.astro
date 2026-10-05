@@ -1,0 +1,168 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const promises = [
+  {
+    title: "Integrity",
+    text: "Every document is genuine and verifiable. Every term is disclosed before you sign.",
+    icon: "M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3zM9 12l2 2 4-4",
+  },
+  {
+    title: "Discretion",
+    text: "Your business and household information is handled strictly on a need-to-know basis.",
+    icon: "M7 11h10a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-6a2 2 0 0 1 2-2zM8 11V8a4 4 0 0 1 8 0v3",
+  },
+  {
+    title: "Speed",
+    text: "We work to your deadline, whether that is a tender, a restocking season or a visa date.",
+    icon: "M3 12a9 9 0 1 0 18 0a9 9 0 1 0-18 0M12 7v5l3 2",
+  },
+];
+
+const journey = [
+  { title: "PiKiNiC journeys", text: "Travel and study-abroad plans." },
+  { title: "Mobility finance", text: "Proof of funds, study loans and tuition payment." },
+  {
+    title: "Business lending",
+    text: "Working capital for the businesses behind those families.",
+    featured: true,
+  },
+  { title: "Deal aggregation", text: "Bank and investor capital as businesses scale." },
+];
+---
+
+<Layout
+  title="About us | First Mushroom"
+  description="First Mushroom Financial Services Limited is a state-licensed financial services company connecting people and businesses to the capital they need to grow, trade and move across borders."
+>
+  <!-- Page hero -->
+  <section class="bg-surface">
+    <div class="wrap page-hero">
+      <div class="eyebrow">About us</div>
+      <h1>Viable, not visible.</h1>
+      <p>
+        First Mushroom Financial Services Limited is a state-licensed financial services company.
+        We connect people and businesses to the capital they need to grow, trade and move across
+        borders.
+      </p>
+    </div>
+  </section>
+
+  <!-- Our story -->
+  <section>
+    <div class="wrap section story">
+      <img
+        class="story__photo"
+        src="/images/founder.jpg"
+        alt="Adeniyi Akitoye, Founder and CEO of First Mushroom"
+        width="960"
+        height="1200"
+        loading="lazy"
+      />
+      <div class="story__copy">
+        <div class="eyebrow">Our story</div>
+        <h2 class="h2">Built by a banker who was turned away by banks.</h2>
+        <p>
+          Our founder spent more than eight years inside Nigerian banking. He knows how a credit
+          committee thinks, and why it says no.
+        </p>
+        <p>
+          Then he ran his own business. It had strong turnover and positive cash flow, and banks
+          still declined him again and again. The reason was never his numbers. It was his sector,
+          which sat outside the categories banks prefer to lend to.
+        </p>
+        <p>
+          That is when the real problem became clear. Many Nigerian businesses are not unviable.
+          They are invisible to bank risk models. First Mushroom exists to make them visible.
+        </p>
+        <div class="story__by">Adeniyi Akitoye, Founder &amp; CEO</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The network beneath -->
+  <section class="network">
+    <div class="wrap section network__inner">
+      <div class="network__mark">
+        <img
+          src="/images/mushroom-mark.png"
+          alt="The First Mushroom mark: six folded banknotes in a radial pattern"
+          width="291"
+          height="313"
+          loading="lazy"
+        />
+      </div>
+      <div class="network__copy">
+        <div class="eyebrow eyebrow--gold">The network beneath</div>
+        <h2>Like a mushroom network, we quietly connect an entire ecosystem.</h2>
+        <p>
+          Beneath the surface, we link businesses, banks, investors and families, with the
+          discipline of a bank, the speed of a partner and complete discretion.
+        </p>
+        <p>
+          Our mark is a banknote folded into the shape of a "1", repeated six times in a radial
+          pattern. It stands for circulation, and for capital that multiplies.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How we work -->
+  <section>
+    <div class="wrap section stack-48">
+      <div class="heading-block">
+        <div class="eyebrow">How we work</div>
+        <h2 class="h2">Three promises, in every deal.</h2>
+      </div>
+      <div class="promises">
+        {
+          promises.map((p) => (
+            <div class="promise">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1280F9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d={p.icon} />
+              </svg>
+              <div class="promise__title">{p.title}</div>
+              <div class="promise__text">{p.text}</div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- PiKiNiC ecosystem -->
+  <section class="bg-surface">
+    <div class="wrap section stack-40">
+      <div class="heading-block heading-block--wide">
+        <div class="eyebrow">The PiKiNiC ecosystem</div>
+        <h2 class="h2">Travel opens the door. Lending is the core.</h2>
+        <p>
+          First Mushroom is the financial backbone of PiKiNiC, a travel and study-abroad ecosystem.
+          Many clients meet us through a journey abroad, and stay with us as their businesses grow.
+        </p>
+      </div>
+      <div class="journey">
+        {
+          journey.map((j, i) => (
+            <div class:list={["journey__item", { "journey__item--featured": j.featured }]}>
+              <div class="journey__step">STEP {i + 1}</div>
+              <div class="journey__title">{j.title}</div>
+              <div class="journey__text">{j.text}</div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA band -->
+  <section class="cta-band">
+    <div class="wrap cta-band__row">
+      <h2>Start with a conversation.</h2>
+      <div class="hero__actions">
+        <a class="btn btn--white" href="https://wa.me/2347076968494">WhatsApp us</a>
+        <a class="btn btn--ghost-white" href="/contact">Contact us</a>
+      </div>
+    </div>
+  </section>
+</Layout>
