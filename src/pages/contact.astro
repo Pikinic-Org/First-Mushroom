@@ -1,0 +1,213 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const EMAIL = "fmf@firstmushroomfinance.com";
+// Set PUBLIC_CONTACT_ENDPOINT (e.g. a Formspree or Netlify form URL) to post enquiries.
+// Without it, the form opens the visitor's email app with the message filled in.
+const endpoint = import.meta.env.PUBLIC_CONTACT_ENDPOINT ?? "";
+
+const interests = [
+  "Business lending",
+  "Deal aggregation: I need capital",
+  "Deal aggregation: I provide capital",
+  "Mobility finance",
+  "Something else",
+];
+
+const mapSrc =
+  "https://www.google.com/maps?q=" +
+  encodeURIComponent("Alausa Shopping Mall, 131 Awolowo Way, Ikeja, Lagos") +
+  "&output=embed";
+---
+
+<Layout
+  title="Contact | First Mushroom"
+  description="Talk to First Mushroom by WhatsApp, phone, email or at our Ikeja office. Tell us what you need and we'll tell you honestly whether and how we can help."
+>
+  <!-- Hero -->
+  <section class="bg-surface">
+    <div class="wrap contact-hero">
+      <div class="eyebrow">Contact</div>
+      <h1>Start with a conversation.</h1>
+      <p>Tell us what you need. We'll tell you honestly whether and how we can help.</p>
+    </div>
+  </section>
+
+  <!-- Details and form -->
+  <section>
+    <div class="wrap contact-main">
+      <div class="contact-cards">
+        <a class="contact-card" href="https://wa.me/2347076968494">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1280F9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12a9 9 0 0 1-13.4 7.8L3 21l1.3-4.4A9 9 0 1 1 21 12z" />
+          </svg>
+          <span class="contact-card__body">
+            <span class="contact-card__label">WHATSAPP &amp; CALL</span>
+            <span class="contact-card__value">0707 696 8494</span>
+          </span>
+        </a>
+        <a class="contact-card" href={`mailto:${EMAIL}`}>
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1280F9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="5" width="18" height="14" rx="2" />
+            <path d="M3 7l9 6 9-6" />
+          </svg>
+          <span class="contact-card__body">
+            <span class="contact-card__label">EMAIL</span>
+            <span class="contact-card__value contact-card__value--sm">{EMAIL}</span>
+          </span>
+        </a>
+        <div class="contact-card contact-card--top">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1280F9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z" />
+            <circle cx="12" cy="10" r="2.5" />
+          </svg>
+          <span class="contact-card__body">
+            <span class="contact-card__label">VISIT US</span>
+            <span class="contact-card__address">
+              Office 17, Block B, Ground Floor,<br />Alausa Shopping Mall, 131 Awolowo Way,<br />Ikeja,
+              Lagos
+            </span>
+            <span class="contact-card__hours">[Opening hours]</span>
+          </span>
+        </div>
+      </div>
+
+      <div class="contact-form-box">
+        <div id="contact-sent" class="contact-sent" hidden>
+          <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#2E9E5E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="9" />
+            <path d="M8 12.5l3 3 5-6" />
+          </svg>
+          <h2 id="contact-sent-title">Thank you. We've received your message.</h2>
+          <p id="contact-sent-text">
+            A member of our team will contact you [within one business day]. For anything urgent,
+            WhatsApp or call 0707 696 8494.
+          </p>
+          <button type="button" class="btn btn--ghost-navy contact-sent__again" id="contact-again">
+            Send another message
+          </button>
+        </div>
+
+        <form id="contact-form" class="contact-form" data-endpoint={endpoint} data-email={EMAIL}>
+          <h2>Send us a message</h2>
+          <div class="contact-form__row">
+            <label>
+              Full name
+              <input type="text" name="name" required autocomplete="name" />
+            </label>
+            <label>
+              Phone (WhatsApp)
+              <input type="tel" name="phone" required autocomplete="tel" />
+            </label>
+          </div>
+          <label>
+            Email
+            <input type="email" name="email" autocomplete="email" />
+          </label>
+          <label>
+            I'm interested in
+            <select name="interest">
+              {interests.map((i) => <option>{i}</option>)}
+            </select>
+          </label>
+          <label>
+            How can we help?
+            <textarea name="message" rows="5"></textarea>
+          </label>
+          <label class="contact-form__consent">
+            <input type="checkbox" name="consent" required />
+            <span>
+              I agree that First Mushroom may contact me about my enquiry and process my details in
+              line with its [privacy policy].
+            </span>
+          </label>
+          <p class="contact-form__error" id="contact-error" role="alert" hidden></p>
+          <button type="submit" class="btn btn--primary contact-form__submit">Send message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Map -->
+  <section>
+    <div class="wrap contact-map">
+      <iframe
+        title="Map: Alausa Shopping Mall, 131 Awolowo Way, Ikeja, Lagos"
+        src={mapSrc}
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        allowfullscreen></iframe>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  const form = document.getElementById("contact-form") as HTMLFormElement | null;
+  const sent = document.getElementById("contact-sent");
+  const error = document.getElementById("contact-error");
+  const title = document.getElementById("contact-sent-title");
+  const text = document.getElementById("contact-sent-text");
+  const again = document.getElementById("contact-again");
+
+  const showSent = (heading?: string, body?: string) => {
+    if (!form || !sent) return;
+    if (heading && title) title.textContent = heading;
+    if (body && text) text.textContent = body;
+    form.hidden = true;
+    sent.hidden = false;
+  };
+
+  form?.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    if (error) error.hidden = true;
+    const data = Object.fromEntries(new FormData(form).entries());
+    const endpoint = form.dataset.endpoint;
+
+    if (endpoint) {
+      const button = form.querySelector<HTMLButtonElement>("button[type=submit]");
+      if (button) button.disabled = true;
+      try {
+        const res = await fetch(endpoint, {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify(data),
+        });
+        if (!res.ok) throw new Error(String(res.status));
+        form.reset();
+        showSent();
+      } catch {
+        if (error) {
+          error.textContent =
+            "Sorry, that didn't send. Please WhatsApp or call 0707 696 8494, or try again.";
+          error.hidden = false;
+        }
+      } finally {
+        if (button) button.disabled = false;
+      }
+      return;
+    }
+
+    // No endpoint configured: hand the message to the visitor's email app.
+    const body = [
+      `Name: ${data.name}`,
+      `Phone: ${data.phone}`,
+      `Email: ${data.email || "-"}`,
+      `Interested in: ${data.interest}`,
+      "",
+      `${data.message || ""}`,
+    ].join("\n");
+    location.href = `mailto:${form.dataset.email}?subject=${encodeURIComponent(
+      "Enquiry: " + data.interest,
+    )}&body=${encodeURIComponent(body)}`;
+    showSent(
+      "Almost there. Send the email to finish.",
+      "Your email app should have opened with your message filled in. Press send to complete it. For anything urgent, WhatsApp or call 0707 696 8494.",
+    );
+  });
+
+  again?.addEventListener("click", () => {
+    if (!form || !sent) return;
+    sent.hidden = true;
+    form.hidden = false;
+  });
+</script>

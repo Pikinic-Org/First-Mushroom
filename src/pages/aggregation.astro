@@ -1,0 +1,208 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const flow = [
+  {
+    label: "SELL SIDE",
+    sub: "Needs capital",
+    items: ["Corporates and SMEs", "Project sponsors", "Deal advisors and originators"],
+  },
+  {
+    label: "FIRST MUSHROOM",
+    sub: "In the middle",
+    items: ["Screen", "Package", "Match and follow through"],
+    center: true,
+  },
+  {
+    label: "BUY SIDE",
+    sub: "Provides capital",
+    items: ["Commercial banks", "Asset managers", "Investors and DFIs"],
+  },
+];
+
+const sides = [
+  {
+    id: "businesses",
+    eyebrow: "For businesses and advisors",
+    title: "Find the right capital partner, faster.",
+    text: "Stop pitching to institutions that were never going to fund your type of deal. We start from what your deal needs and put it in front of the ones most likely to say yes.",
+    points: [
+      "Your deal packaged the way credit committees expect",
+      "Introductions only to institutions it fits",
+      "Advisors keep their client relationship",
+    ],
+    cta: "Tell us what you need",
+    href: "mailto:fmf@firstmushroomfinance.com?subject=Financing%20need",
+    ctaClass: "btn btn--primary",
+  },
+  {
+    id: "institutions",
+    eyebrow: "For banks and investors",
+    title: "Pre-screened deal flow that fits your mandate.",
+    text: "Tell us your criteria once. We bring you only the deals that match, each with a credit-style summary from a team that has sat on the bank side.",
+    points: [
+      "Less screening noise for your team",
+      "Matched to your sectors, ticket sizes and instruments",
+      "Every credit decision stays yours",
+    ],
+    cta: "Share your criteria",
+    href: "mailto:fmf@firstmushroomfinance.com?subject=Investment%20criteria",
+    ctaClass: "btn btn--navy",
+  },
+];
+
+const process = [
+  {
+    title: "Screen",
+    text: "Every deal goes through a standard intake and a credit-style review.",
+  },
+  {
+    title: "Package",
+    text: "We prepare the financial summary and memo credit committees expect to see.",
+  },
+  {
+    title: "Match",
+    text: "Each deal is introduced only to the institutions whose criteria it fits.",
+  },
+  {
+    title: "Follow through",
+    text: "An NDA comes before any identifying detail, and every introduction is tracked to a decision.",
+  },
+];
+
+const dealTypes = [
+  "Trade finance",
+  "Working capital facilities",
+  "Expansion funding",
+  "Project finance",
+];
+---
+
+<Layout
+  title="Deal Aggregation | First Mushroom"
+  description="We connect businesses that need capital with the commercial banks, asset managers and investors that provide it, screening and packaging every deal the way a credit desk would."
+>
+  <!-- Hero -->
+  <section class="hero">
+    <img class="hero__mark hero__mark--high" src="/images/mushroom-mark.png" alt="" width="291" height="313" />
+    <div class="wrap hero__inner">
+      <div class="hero__copy">
+        <div class="hero__eyebrow">02 · DEAL AGGREGATION</div>
+        <h1>Every deal, matched.</h1>
+        <p class="hero__lead">
+          We connect businesses that need capital with the commercial banks, asset managers and
+          investors that provide it. Every deal is screened and packaged the way a credit desk
+          would, then introduced only where it fits.
+        </p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="#businesses">I need capital</a>
+          <a class="btn btn--ghost-light" href="#institutions">I provide capital</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it connects -->
+  <section>
+    <div class="wrap section stack-40">
+      <div class="heading-block heading-block--wide">
+        <div class="eyebrow">How it connects</div>
+        <h2 class="h2">We sit in the middle, so both sides see only what fits.</h2>
+      </div>
+      <div class="flow">
+        {
+          flow.map((f, i) => (
+            <>
+              {i > 0 && (
+                <div class="flow__arrow">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#8A93A8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M5 12h14M13 6l6 6-6 6" />
+                  </svg>
+                </div>
+              )}
+              <div class:list={["flow__box", { "flow__box--center": f.center }]}>
+                <div class="flow__label">{f.label}</div>
+                <div class="flow__sub">{f.sub}</div>
+                <ul class="flow__items">
+                  {f.items.map((item) => <li>{item}</li>)}
+                </ul>
+              </div>
+            </>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Two sides -->
+  <section class="bg-surface">
+    <div class="wrap section sides">
+      {
+        sides.map((s) => (
+          <div class="side" id={s.id}>
+            <div class="eyebrow">{s.eyebrow}</div>
+            <h3>{s.title}</h3>
+            <p class="side__text">{s.text}</p>
+            <div class="side__points">
+              {s.points.map((p) => (
+                <div class="check-row">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2E9E5E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M5 12l5 5 9-10" />
+                  </svg>
+                  <div>{p}</div>
+                </div>
+              ))}
+            </div>
+            <a class:list={[s.ctaClass, "side__cta"]} href={s.href}>
+              {s.cta}
+            </a>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section>
+    <div class="wrap section stack-48">
+      <div class="heading-block">
+        <div class="eyebrow">Our process</div>
+        <h2 class="h2">From intake to decision.</h2>
+      </div>
+      <div class="steps steps--navy">
+        {
+          process.map((s, i) => (
+            <div class="step">
+              <div class="step__num">{String(i + 1).padStart(2, "0")}</div>
+              <div class="step__title">{s.title}</div>
+              <div class="step__text">{s.text}</div>
+            </div>
+          ))
+        }
+      </div>
+      <div class="deal-types">
+        <div class="eyebrow">Deals we work on</div>
+        <div class="deal-types__list">
+          {dealTypes.map((d) => <span class="pill">{d}</span>)}
+          <span class="pill pill--todo">[Confirm deal types]</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA band -->
+  <section class="cta-band cta-band--navy">
+    <div class="wrap cta-band__row">
+      <div class="cta-band__text cta-band__text--narrow">
+        <h2>A confidential conversation, first.</h2>
+        <div class="cta-band__note cta-band__note--soft">
+          We introduce and package deals. Funding decisions rest with each institution. Fees are
+          agreed in writing and disclosed to both sides.
+        </div>
+      </div>
+      <a class="btn btn--white" href="mailto:fmf@firstmushroomfinance.com">
+        fmf@firstmushroomfinance.com
+      </a>
+    </div>
+  </section>
+</Layout>

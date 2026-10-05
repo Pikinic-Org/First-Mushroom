@@ -1,0 +1,181 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const offers = [
+  {
+    title: "Proof of funds",
+    text: "Genuine, verifiable evidence of funds for visa and admission applications.",
+    icon: "M7 3h7l5 5v13H7zM14 3v5h5M10 14l2 2 4-4",
+  },
+  {
+    title: "Visa financial documentation",
+    text: "Preparing and checking the financial documents embassies ask for.",
+    icon: "M7 3h10a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zM9 10a3 3 0 1 0 6 0a3 3 0 1 0-6 0M9 17h6",
+  },
+  {
+    title: "Study loans",
+    text: "Structured loans for tuition and the cost of studying abroad.",
+    icon: "M3 9l9-5 9 5-9 5-9-5zM7 11v5c3 2 7 2 10 0v-5",
+  },
+  {
+    title: "Tuition fee payment",
+    text: "Paying schools directly and on time, before deposit deadlines.",
+    icon: "M5 6h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2zM3 10h18M7 15h4",
+  },
+  {
+    title: "Travel finance",
+    text: "Financing for travel costs linked to study and work abroad.",
+    icon: "M2 16l20-6-3-2-6 2-6-5-2 1 4 5-4 1-2-1-1 1zM3 20h18",
+  },
+];
+
+const steps = [
+  { title: "Tell us your deadline", text: "Your visa appointment, deposit date or travel date." },
+  {
+    title: "We review your documents",
+    text: "We check what the embassy or school requires against what you have.",
+  },
+  {
+    title: "We structure the solution",
+    text: "Proof of funds, a study loan, tuition payment, or a mix.",
+  },
+  {
+    title: "Delivered on time",
+    text: "Genuine, verifiable documents, ready before your deadline.",
+  },
+];
+
+const faqs = [
+  {
+    q: "Are your proof of funds documents genuine?",
+    a: "Yes. Every document we provide is genuine and verifiable. We never create documents that misrepresent your finances.",
+  },
+  {
+    q: "Can you guarantee my visa or admission?",
+    a: "No. Visa and admission decisions rest with the embassy or school. We make sure the financial side of your application is ready and correct.",
+  },
+  {
+    q: "How early should I contact you?",
+    a: "As soon as you have an offer letter or a visa date. [Recommended lead time to be confirmed.]",
+  },
+  {
+    q: "Do I need to be a PiKiNiC client?",
+    a: "[To be confirmed.]",
+  },
+];
+---
+
+<Layout
+  title="Mobility Finance | First Mushroom"
+  description="Genuine, verifiable proof of funds, visa documentation, study loans and tuition payment for students, families and travellers, delivered on your timeline."
+>
+  <!-- Hero -->
+  <section class="mob-hero">
+    <img class="mob-hero__mark" src="/images/mushroom-mark.png" alt="" width="291" height="313" />
+    <div class="wrap mob-hero__inner">
+      <div class="eyebrow">03 · Mobility Finance</div>
+      <h1>Genuine, verifiable financial readiness, on your timeline.</h1>
+      <p>
+        As the financial backbone of the PiKiNiC ecosystem, we help students, families and
+        travellers meet the financial requirements of admission, visas and travel.
+      </p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="https://wa.me/2347076968494">
+          Talk to us about your deadline
+        </a>
+        <a class="btn btn--ghost-navy" href="#offer">What we provide</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- What we provide -->
+  <section id="offer">
+    <div class="wrap section stack-40">
+      <div class="heading-block">
+        <div class="eyebrow">What we provide</div>
+        <h2 class="h2">Everything the money side of going abroad needs.</h2>
+      </div>
+      <div class="offers">
+        {
+          offers.map((o) => (
+            <div class="offer">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#1280F9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d={o.icon} />
+              </svg>
+              <div class="offer__title">{o.title}</div>
+              <div class="offer__text">{o.text}</div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="network">
+    <div class="wrap section stack-48">
+      <div class="heading-block">
+        <div class="eyebrow eyebrow--gold">How it works</div>
+        <h2 class="h2 on-dark">Four steps, worked back from your deadline.</h2>
+      </div>
+      <div class="steps steps--light">
+        {
+          steps.map((s, i) => (
+            <div class="step">
+              <div class="step__num">{String(i + 1).padStart(2, "0")}</div>
+              <div class="step__title">{s.title}</div>
+              <div class="step__text">{s.text}</div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Start early / PiKiNiC -->
+  <section>
+    <div class="wrap section duo">
+      <div class="duo__box note-card note-card--blue">
+        <h3>Start early.</h3>
+        <p>
+          Talk to us before your deadline, not the week of it. The earlier we start, the more
+          options you have.
+        </p>
+        <a class="btn btn--white note-card__cta" href="https://wa.me/2347076968494">
+          WhatsApp or call 0707 696 8494
+        </a>
+      </div>
+      <div class="duo__box note-card note-card--grey">
+        <h3>Part of the PiKiNiC ecosystem</h3>
+        <p>
+          Travelling or studying abroad with PiKiNiC? First Mushroom support is built into your
+          journey, from your offer letter to your first tuition payment.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-surface">
+    <div class="wrap section stack-32 faq">
+      <div class="heading-block">
+        <div class="eyebrow">Questions</div>
+        <h2 class="h2">Frequently asked</h2>
+      </div>
+      <div class="faq__list">
+        {
+          faqs.map((f) => (
+            <details class="faq__item">
+              <summary>{f.q}</summary>
+              <p>{f.a}</p>
+            </details>
+          ))
+        }
+      </div>
+      <div class="faq__note">
+        Visa, admission and loan decisions rest with the relevant embassy, school or lender. Loans
+        are subject to assessment.
+      </div>
+    </div>
+  </section>
+</Layout>
