@@ -1447,3 +1447,47 @@ p {
 .site-footer__legal em {
   font-style: italic;
 }
+
+/* ---------- Contact QR card ---------- */
+.contact-qr {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  padding: 20px 22px;
+  background: var(--navy);
+  border-radius: 16px;
+}
+.contact-qr__code {
+  flex-shrink: 0;
+  padding: 10px;
+  background: var(--white);
+  border-radius: 10px;
+}
+.contact-qr__code img {
+  display: block;
+  width: 96px;
+  height: 96px;
+}
+.contact-qr__text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.contact-qr__title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--white);
+}
+.contact-qr__sub {
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--on-navy);
+}
+
+/* ---------- 404 ---------- */
+.page-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 10px;
+}
